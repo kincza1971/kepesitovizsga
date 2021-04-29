@@ -1,7 +1,7 @@
 package hu.nive.ujratervezes.kepesitovizsga.army;
 
 public class Swordsman extends MilitaryUnit {
-    private boolean isFirstHit = true;
+    private boolean isShieldUnused = true;
     public Swordsman(boolean hasArmor) {
         super(100,10, hasArmor);
     }
@@ -9,13 +9,13 @@ public class Swordsman extends MilitaryUnit {
     @Override
     public void sufferDamage(int damage) {
         if (isFirstHit()) {
-            this.isFirstHit = false;
+            this.isShieldUnused = false;
         } else {
             super.sufferDamage(damage);
         }
     }
 
     public boolean isFirstHit() {
-        return isFirstHit;
+        return isShieldUnused;
     }
 }
